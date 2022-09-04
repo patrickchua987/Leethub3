@@ -4,7 +4,7 @@
  
  Strategy 
  since we are required to validate if the input string is valid, we need to store in 
- the stacj whenever we encouter opening character "(" "["  and "{"  so that when 
+ the stack whenever we encouter opening character "(" "["  and "{"  so that when 
  we encounter the reverse character ")", "}", "]", we can match it the top most
  element in the stack by poping it out.  If it match then continue through the loop.
  once the loop finish and we still have element in the stack it means the string is not
