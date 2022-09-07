@@ -16,22 +16,22 @@
  3. loop the numgs again
  4. replace the value of the element when the index is between the left and right
  */
+
 var reverseBetween = function(head, left, right) {
-    var stack = [];
+    let stack = [];
+    let ctr = 1;
     current = head;
-    ctr=1;
     while (current && ctr <= right) {
-        if ( ctr >=left && ctr <= right) {
-            console.log(current.val)
+        if ( ctr >= left && ctr <= right) {
             stack.push(current.val);
         }
         current = current.next
         ctr++;
     }
-    current=head;
-    ctr=1;
+    current = head;
+    ctr =1;
     while (current && ctr <= right) {
-        if ( ctr >=left && ctr <= right) {
+        if (ctr >= left && ctr <= right) {
             current.val = stack.pop();
         }
         current = current.next;
