@@ -13,8 +13,9 @@
  strategy
  1. loop the nums
  2. store the element if the index is between the left and the right
- 3. loop the numgs again
- 4. replace the value of the element when the index is between the left and right
+ 3. store the current node if the ctr = left to leftpointer, store ctr also.
+ 4. loop the numgs again, use the leftpointer as starting point
+ 5. replace the value of the element when the index is between the left and right
  */
 
 var reverseBetween = function(head, left, right) {
@@ -35,7 +36,6 @@ var reverseBetween = function(head, left, right) {
         current = current.next
         ctr++;
     }
-    //current = head;
     current = leftpointer;
     ctr =leftctr;
     while (current && ctr <= right) {
