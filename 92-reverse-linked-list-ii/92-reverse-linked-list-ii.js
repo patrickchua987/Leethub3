@@ -21,15 +21,23 @@ var reverseBetween = function(head, left, right) {
     let stack = [];
     let ctr = 1;
     current = head;
+    let leftpointer=Infinity;
+    let leftctr=0;
     while (current && ctr <= right) {
         if ( ctr >= left && ctr <= right) {
+            if (ctr=== left) {
+                leftpointer=current;
+                leftctr=ctr;
+            }
+            
             stack.push(current.val);
         }
         current = current.next
         ctr++;
     }
-    current = head;
-    ctr =1;
+    //current = head;
+    current = leftpointer;
+    ctr =leftctr;
     while (current && ctr <= right) {
         if (ctr >= left && ctr <= right) {
             current.val = stack.pop();
