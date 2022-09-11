@@ -14,35 +14,32 @@
     linked list the array ang the element in the stack
  */
 var reorderList = function(head) {
-     let arr = [];
-  
-  // traverse linked list and push each node to storage array
-  let node = head;
-  while (node) {
-      arr.push(node);
-      node = node.next;
-  }
-  
-  let result = [arr[0]];    
-  let value = 0;
-  let n = arr.length;
-  
-  // iterage storage array and add nodes to the result list accroding to index rules
-  for (let i = 1; i < arr.length; i++) {
-      if (i % 2 === 0) {
-          value++;
-          result[i] = arr[value];
-      } else {
-          n--;
-          result[i] = arr[n];
-      }
-  }
-  
-  // put next arrows back to each node
-  for (let i = 0; i < result.length; i++) {
-      result[i].next = result[i+1] || null;
-  }
-  
-  // return the head
-  return result[0];
+     let nodeArr = [];
+    let curr = head, count = 0, next;
+    while(curr) {
+        next = curr.next;
+        curr.next = null;
+        nodeArr.push(curr);
+        curr = next;
+        count++;
+    }
+    head = nodeArr[0];
+    curr = null;
+    const length = nodeArr.length;
+    for(let i = 0; i < length-i-1; i++) {
+        next = nodeArr[i+1];
+        if(curr) {
+            curr.next = nodeArr[i];
+            curr = curr.next;
+            curr.next = nodeArr[length-i-1];
+            curr = curr.next;
+        }
+        else {
+            nodeArr[0].next = nodeArr[length-i-1];
+            curr = nodeArr[length-i-1];
+        }
+    }
+    if(count%2 !== 0 && curr) {
+        curr.next = next;
+    }
 };
