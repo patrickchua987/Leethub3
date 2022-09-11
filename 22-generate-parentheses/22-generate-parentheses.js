@@ -23,8 +23,7 @@ var generateParenthesis = function(n) {
             backtrack(openN,closedN+1);
             stack.pop();
         }
-       // backtrack(0,0);
-       // return res;
+       
     }
      backtrack(0,0);
      return res;
