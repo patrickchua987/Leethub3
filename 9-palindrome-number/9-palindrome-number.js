@@ -1,6 +1,9 @@
 /**
  * @param {number} x
  * @return {boolean}
+ // strategy
+ // recursive 
+ // compare the first character vs the last characters
  */
 var isPalindrome = function(x,xx=x.toString()) {
                    
