@@ -1,8 +1,10 @@
 /**
  * @param {number} x
  * @return {boolean}
+ // strategy
+ // recursive 
+ // compare the first character vs the last characters
  */
-
 var isPalindrome = function(x) {
 let x2 = x;
 let total =0;
