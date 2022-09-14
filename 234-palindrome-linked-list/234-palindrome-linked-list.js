@@ -10,26 +10,32 @@
  * @return {boolean}
  */
 var isPalindrome = function(head) {
-   
-current = head;
-let AA = [];
-let ctr = 0;
-while (current) {
-  AA.push(current.val);
-  current = current.next;
-  ctr++;
+fast = head;
+slow = head;
+
+// find middle (slow)
+while (fast && fast.next) {
+    fast = fast.next.next;
+	slow = slow.next;
 }
-let middle = Math.floor(ctr / 2);
-ctr = 0;
-current=head;
-while (ctr < middle) {
-  if (current.val === AA.pop()) {
-      current = current.next;
-      ctr++;
-      continue;
-  }
-  return false;
+
+// reverse second  half
+prev = null;
+while (slow) {
+      tmp = slow.next;
+	  slow.next = prev;
+	  prev = slow;
+	  slow = tmp;
+}
+
+// check palidrome
+left = head;
+right = prev;
+while (right) {
+    if (left.val != right.val) return false;
+	left = left.next;
+	right = right.next;
 }
 return true;
+}
  
-};
